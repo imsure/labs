@@ -32,7 +32,8 @@ celery -A periodic_task_async worker -P eventlet -c 1000
 ## Use case
 
 An extension of the above use case where multiple periodic tasks need to be scheduled.
-Each periodic task and its associated async task are routed to a dedicated queue.
+Each periodic task and its associated async task are routed to a dedicated queue. Especially,
+in async task2, a group of async tasks 3 are executed.
 
 ## How to run
 
@@ -51,5 +52,5 @@ celery -A periodic_task_async_multiqueue worker -n worker1@%h -Q async1 -P event
 ### Start celery worker2 for queue `async2`
 
 ```bash
-celery -A periodic_task_async_multiqueue worker -n worker1@%h -Q async2 -P eventlet -c 1000
+celery -A periodic_task_async_multiqueue worker -n worker2@%h -Q async2 -P eventlet -c 1000
 ```

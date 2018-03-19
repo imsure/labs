@@ -8,7 +8,8 @@ app = Celery('periodic_task_async_multiqueue',
                       'periodic_task_async_multiqueue.task_async'])
 
 app.conf.task_routes = {'periodic_task_async_multiqueue.task_async.task1': {'queue': 'async1'},
-                        'periodic_task_async_multiqueue.task_async.task2': {'queue': 'async2'}}
+                        'periodic_task_async_multiqueue.task_async.task2': {'queue': 'async2'},
+                        'periodic_task_async_multiqueue.task_async.task3': {'queue': 'async2'}}
 
 app.conf.beat_schedule = {
     'task-periodic-1': {
@@ -18,7 +19,7 @@ app.conf.beat_schedule = {
     },
     'task-periodic-2': {
         'task': 'periodic_task_async_multiqueue.task_periodic.task2',
-        'schedule': 10,  # execute every 10 seconds
+        'schedule': 30,  # execute every 30 seconds
         'options': {'queue': 'async2'},
     },
 }
