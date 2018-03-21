@@ -1,4 +1,5 @@
 # Example1: running periodic task along with async tasks
+# Example2: running periodic task along with async tasks and retrieving results returned by async tasks
 
 ## Use case
 
@@ -27,7 +28,7 @@ celery -A periodic_task_async worker -P eventlet -c 1000
 ```
 
 
-# Example2: running periodic task along with async tasks with multiple queues
+# Example3: running periodic task along with async tasks with multiple queues
 
 ## Use case
 
